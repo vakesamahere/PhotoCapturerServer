@@ -37,11 +37,12 @@ const server = http.createServer((request, response) => {
       // 监听文件解析事件
       form.on('file', (fieldname, file) => {
         const { exec } = require('child_process');
+        console.log("File received successfully.Copying...");
         exec(`copyPic.bat ${process.argv[2]}`, (error, stdout, stderr) => {
             if (error) {
                 console.error('Error executing copyPic.bat:', error);
             } else {
-                console.log('copyPic.bat executed successfully');
+                console.log("Copy completed.");
             }
         });
       });
@@ -51,7 +52,6 @@ const server = http.createServer((request, response) => {
           // 发送响应给客户端
           response.writeHead(200, { 'Content-Type': 'text/plain' });
           response.end('POST request received');
-          console.log("post");
       });
 
       // 解析请求

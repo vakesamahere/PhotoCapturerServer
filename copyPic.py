@@ -20,6 +20,6 @@ def set_clipboard_image(image):
         win32clipboard.CloseClipboard()
 #image_path = "C:\\Users\\23664\\Desktop\\exp\\HtmlServer\\upload\\image.jpg"
 print(sys.argv)
-image_path = sys.argv[1].replace("\\\\","\\")+"\\image.jpg"
+image_path = sys.argv[1].replace("\\\\","\\")+"\\upload\\image.jpg"
 image = Image.open(image_path)
 set_clipboard_image(image)
